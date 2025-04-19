@@ -1,6 +1,4 @@
-package kr.tutorial.myfirstapp.basic
-
-import kotlin.reflect.typeOf
+package kr.tutorial.myfirstapp.basic.section2
 
 
 // 코틀린의 숫자 타입은 Integer, Shorts, Float, Double, Long이 존재한다.

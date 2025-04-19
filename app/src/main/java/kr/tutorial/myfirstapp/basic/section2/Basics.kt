@@ -1,4 +1,4 @@
-package kr.tutorial.myfirstapp.basic
+package kr.tutorial.myfirstapp.basic.section2
 
 fun main() {
 
