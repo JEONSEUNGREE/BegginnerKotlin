@@ -20,11 +20,16 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -61,113 +66,122 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Composable
 fun UnitConverter() {
 
+    var inputValue by remember{ mutableStateOf("") }
+    var outputValue by remember{ mutableStateOf("") }
+    var inputUnit by remember{ mutableStateOf("") }
+    var outputUnit by remember{ mutableStateOf("") }
+    var iExpanded by remember{ mutableStateOf(false) }
+    var oExpanded by remember{ mutableStateOf(false) }
+
     Column (
         // 컬럼이 전체 영역 차지
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ){
-        Text("Unit Converter", modifier = Modifier.padding(16.dp))
+        Text("Unit Converter", modifier = Modifier.padding(16.dp), style = MaterialTheme.typography.headlineLarge)
         Spacer(modifier = Modifier.height(8.dp))
-        OutlinedTextField(value = "", onValueChange = {})
+
+        OutlinedTextField(value = inputValue,onValueChange = {
+            inputValue = it
+        })
         Row {
             // 드롭다운 메뉴는 위치를 잡아주는 부모가 필요하기에 Box로 각 드롭다운버튼을 감싸준다
             Box {
                 // 버튼 클릭시 토스트 팝업으로 Thanks for clicking이 뜬다.
-                Button(onClick = {}) {
+                Button(onClick = {
+                    iExpanded = !iExpanded
+                }) {
                     // 버튼 메시지
                     Text("Select")
                     Icon(Icons.Default.ArrowDropDown, contentDescription = "")
                 }
-                DropdownMenu(expanded = false, onDismissRequest = {}) {
+                DropdownMenu(expanded = iExpanded, onDismissRequest = {
+                    iExpanded = !iExpanded
+                }) {
                     DropdownMenuItem(
                         text = { Text("Centimeters")},
-                        onClick = {}
+                        onClick = {
+                            inputUnit = "Centimeters"
+                            iExpanded = !iExpanded
+                        }
                     )
                     DropdownMenuItem(
                         text = { Text("Meters")},
-                        onClick = {}
+                        onClick = {
+                            inputUnit = "Meters"
+                            iExpanded = !iExpanded
+                        }
                     )
                     DropdownMenuItem(
                         text = { Text("Feet")},
-                        onClick = {}
+                        onClick = {
+                            inputUnit = "Feet"
+                            iExpanded = !iExpanded
+                        }
                     )
                     DropdownMenuItem(
                         text = { Text("Millimeters")},
-                        onClick = {}
+                        onClick = {
+                            inputUnit = "Millimeters"
+                            iExpanded = !iExpanded
+                        }
                     )
                 }
             }
             Spacer(modifier = Modifier.width(16.dp))
             Box {
                 // 버튼 클릭시 토스트 팝업으로 Thanks for clicking이 뜬다.
-                Button(onClick = {}) {
+                Button(onClick = {
+                    oExpanded = !oExpanded
+                }) {
                     // 버튼 메시지
                     Text("Select")
                     Icon(Icons.Default.ArrowDropDown, contentDescription = "")
                 }
-                DropdownMenu(expanded = false, onDismissRequest = {}) {
+                DropdownMenu(expanded = oExpanded, onDismissRequest = {
+                    oExpanded = !oExpanded
+                }) {
                     DropdownMenuItem(
                         text = { Text("Centimeters")},
-                        onClick = {}
+                        onClick = {
+                            outputUnit = "Centimeters"
+                            oExpanded = !oExpanded
+                        }
                     )
                     DropdownMenuItem(
                         text = { Text("Meters")},
-                        onClick = {}
+                        onClick = {
+                            outputUnit = "Meters"
+                            oExpanded = !oExpanded
+                        }
                     )
                     DropdownMenuItem(
                         text = { Text("Feet")},
-                        onClick = {}
+                        onClick = {
+                            outputUnit = "Feet"
+                            oExpanded = !oExpanded
+                        }
                     )
                     DropdownMenuItem(
                         text = { Text("Millimeters")},
-                        onClick = {}
+                        onClick = {
+                            outputUnit = "Millimeters"
+                            oExpanded = !oExpanded
+                        }
                     )
                 }
             }
         }
-        Text("Result : ")
+        Text("inputUnit : ${inputUnit}")
+        Text("outputUnit : ${outputUnit}")
+        Text("Result : ${inputValue + " " + outputUnit}")
     }
 }
 
-// 버튼, 토스트 관련 설명
-//@Composable
-//fun UnitConverter() {
-//
-//    Column {
-//
-//        Text("Unit Converter")
-//        OutlinedTextField(value = "", onValueChange = {})
-//        Row {
-//            // LoaclContext 안드로이드 액티비티(화면)를 가져온다.
-//            val context = LocalContext.current
-//
-//            // 버튼 클릭시 토스트 팝업으로 Thanks for clicking이 뜬다.
-//            Button(onClick = {
-//                Toast.makeText(context,
-//                    "Thanks for clicking!",
-//                    Toast.LENGTH_LONG).show()
-//            }) {
-//                // 버튼 메시지
-//                Text("Click Me")
-//            }
-//
-//        }
-//        Text("Result : ")
-//    }
-//}
 
 @Preview(showBackground = true)
 @Composable
 fun UnitConverterPreview() {
     UnitConverter()
 }
-
-// AVD(Android Virtual Device) 가상시뮬까지 구동시킬 필요없이 코드를 프리뷰로 볼수있는 기능
-//@Preview(showBackground = true)
-//@Composable
-//fun GreetingPreview() {
-//    MyFirstAppTheme {
-//        Greeting("HAHA")
-//    }
-//}
