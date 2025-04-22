@@ -1,4 +1,4 @@
-package kr.tutorial.myfirstapp
+package kr.tutorial.myfirstapp.basic.section8
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
