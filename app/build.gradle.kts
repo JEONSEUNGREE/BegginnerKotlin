@@ -55,6 +55,18 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
     // view모델
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1")
+
+    // 네트워크 통신
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+
+
+    // JSON통신해서 코틀린객체로 변환
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+
+    // 이미지 로딩
+    implementation("io.coil-kt:coil-compose:2.4.0")
+
 }
