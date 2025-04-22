@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    // 역직렬화 + 직렬화 도구
+    id("kotlin-parcelize")
 }
 
 android {
@@ -68,5 +70,8 @@ dependencies {
 
     // 이미지 로딩
     implementation("io.coil-kt:coil-compose:2.4.0")
+
+    // 네비게이션
+    implementation("androidx.navigation:navigation-compose:2.8.9")
 
 }
