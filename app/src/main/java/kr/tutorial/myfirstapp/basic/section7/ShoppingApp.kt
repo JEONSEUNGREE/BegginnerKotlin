@@ -1,4 +1,4 @@
-package kr.tutorial.myfirstapp
+package kr.tutorial.myfirstapp.basic.section7
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -42,7 +42,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import kr.tutorial.myfirstapp.ui.theme.MyFirstAppTheme
 
-class MainActivity : ComponentActivity() {
+class ShoppingApp : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
