@@ -80,5 +80,8 @@ dependencies {
     // 실제 위도 경도로 지역 출력
     implementation("com.google.android.gms:play-services-maps:19.2.0")
 
+    // 카메라 위치 상태를 Compose에서 remeber상태로 유지하며 지도 위치를 관리한다.
+    implementation("com.google.maps.android:maps-compose:2.11.4")
+
 
 }
