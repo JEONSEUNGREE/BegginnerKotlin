@@ -74,4 +74,11 @@ dependencies {
     // 네비게이션
     implementation("androidx.navigation:navigation-compose:2.8.9")
 
+    // 위치 API 접근 (구글 위치 서비스 구글플레이 위치서비스)
+    implementation("com.google.android.gms:play-services-location:21.3.0")
+
+    // 실제 위도 경도로 지역 출력
+    implementation("com.google.android.gms:play-services-maps:19.2.0")
+
+
 }

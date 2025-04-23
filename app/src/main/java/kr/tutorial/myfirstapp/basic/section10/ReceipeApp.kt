@@ -1,4 +1,4 @@
-package kr.tutorial.myfirstapp
+package kr.tutorial.myfirstapp.basic.section10
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -6,7 +6,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import kr.tutorial.myfirstapp.basic.section10.CategoryDetailScreen
+import kr.tutorial.myfirstapp.basic.section10.Screen
 import kr.tutorial.myfirstapp.basic.section9.Category
 import kr.tutorial.myfirstapp.basic.section9.MainViewModel
 import kr.tutorial.myfirstapp.basic.section9.RecipeScreen

@@ -1,4 +1,4 @@
-package kr.tutorial.myfirstapp
+package kr.tutorial.myfirstapp.basic.section10
 
 // sealed란 서브 클래스의 자료형중 하나로 상속가능클래스 계층을 제한한다.
 /* 예제
